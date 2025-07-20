@@ -1,31 +1,7 @@
 [default]
 
-persist_dir = "./chroma_store"
-collection_name = "commits"
-ollama_url = "http://localhost:11434/api/generate"
-model_name = "mistral"
-no_of_commits = 50
-branch = "main"
-git_repo_dir = "~/Desktop/development/vscode"
-n_relevant_results = 3
-
-[default.questions]
-question1 = "Who made the most recent changes?"
-question2 = "Are multiple developers working on the same area?"
-question3 = "Which parts of the codebase are most active recently?"
-
-[brew]
-
-persist_dir = "./chroma_store"
-collection_name = "commits"
 ollama_url = "http://localhost:11434/api/generate"
 model_name = "llama3"
-no_of_commits = 1
 branch = "main"
-git_repo_dir = "~/Desktop/development/brew"
-n_relevant_results = 3
-
-[brew.questions]
-question1 = "Who made the most recent changes?"
-question2 = "Are multiple developers working on the same area?"
-question3 = "Which parts of the codebase are most active recently?"
+git_repo_dir = "~/Desktop/development/vscode"
+output = "head_commit_analysis.txt"
