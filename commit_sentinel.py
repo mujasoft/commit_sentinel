@@ -30,7 +30,7 @@ from dynaconf import Dynaconf
 
 # Load typer
 app = typer.Typer(
-    help="Analyse HEAD commit and assess risk"
+    help="Analyse HEAD commit and assess risk using a LLM."
 )
 
 # Load config
