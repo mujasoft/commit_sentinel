@@ -3,7 +3,7 @@
 ![Status](https://img.shields.io/badge/status-WIP-orange)
 
 # Commit Sentinel
-A CLI tool that uses AI to score and summarize the latest Git commit before it breaks everything.
+A CLI tool that uses AI to score and summarize the latest Git commit before submission.
 
 ## Why This Exists
 
