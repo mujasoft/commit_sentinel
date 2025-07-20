@@ -20,6 +20,10 @@ This tool:
 2. Obtains head commit
 3. Uses local LLM (via **llama3**) to perform risk assessment
 
+## Demo
+[Watch Demo (2m)](./demo.mov)
+
+
 ## Limitations
 - Currently only analyzes the **HEAD** of your feature branch.
 - Large diffs may exceed the LLM’s token limit and result in truncated prompts — a warning will be printed in such cases.
@@ -108,6 +112,6 @@ MIT License — see [LICENSE](./LICENSE)
 
 ## Author
 
-**Mujaheed Khan**  
-DevOps | Python | Automation | CI/CD  
+**Mujaheed Khan**
+DevOps | Python | Automation | CI/CD
 GitHub: [github.com/mujasoft](https://github.com/mujasoft)
