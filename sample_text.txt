@@ -1,0 +1,11 @@
+Commit Analysis:
+---------------
+Hash: c41721940bd3bf510f76e1770c75efcc8e2d3cda
+Summary: This commit refactors the `CommandLineAutoApprover` to match full command lines against allow/deny patterns and improve the logic for matching sub-commands. It also removes unnecessary code and updates tests.
+
+Risk Factors:
+* None
+
+Risk Score: 4 (medium)
+
+Review Recommendation: Optional
