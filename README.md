@@ -3,33 +3,28 @@
 ![Status](https://img.shields.io/badge/status-WIP-orange)
 
 # Commit Sentinel
-A CLI tool that uses Ai to perform a risk assessment of a HEAD commit prior to submission.
+A CLI tool that uses AI to score and summarize the latest Git commit before it breaks everything.
 
 ## Why This Exists
 
 Software is being updated all the time. Commits are coming in fast and furious. This tool
-aims to provide a helpful risk assessment prior to submission. Its meant to be simple on
-purpose. It only works on the HEAD commit because the most recent commit is the most likely
-commit to break everything.
-**This tool solves that.**
+can provide a helpful risk assessment prior to submission. At the moment, it only works on the HEAD because the most recent commit is the most likely commit to break everything.
 
 - Configure once — no need to modify the code
 - Simple CLI interface, CI/CD-ready
 - Unix style design
 
----
-
 ## How It Works
 
 This tool:
-1. Connects to any Git repository
+1. Works with any Git repository
 2. Obtains head commit
 3. Uses local LLM (via **llama3**) to perform risk assessment
 
 ## Limitations
-- Current this tool only focuses on the HEAD of your feature branch. In the future, an option
-may be added to specify a specific commit.
-- Depending on the size of the HEAD commit, the diff may be so large that it can cause the prompt length to be truncated. There will be a warning printed during such cases.
+- This tool only focuses on the HEAD of your feature branch. In the future, an option
+may be added to specify a certain commit.
+- Depending on the size of the HEAD commit, the diff may be so large that it can cause the prompt length to be truncated. There will be a warning printed during such cases. Without full information, the LLM's answer may not be as accurate.
 
 ## Configuration
 
@@ -45,16 +40,14 @@ git_repo_dir = "~/Desktop/development/vscode"
 output = "head_commit_analysis.txt"
 ```
 
-> Helpful for deployment in pipelines. Setup and forget.
-
----
+> Helpful for deployment in pipelines. Parameters can also be overwritten by CLI at any time.
 
 ## Usage
 
 ### 1. Start your local LLM
 ```bash
 ollama run llama3
-# You can use mistral too but that has a smaller token limit.
+# You can also use mistral, but keep in mind it has a smaller context window than llama3.
 ```
 
 ### 2. Configure your settings
@@ -95,9 +88,8 @@ Review Recommendation: Optional
 ---
 
 ## TODO
-
-- add unit tests
-- add output options such as json or yaml
+- add an option to check a certain commit.
+- add unit test(s)
 - add a check to see if ollama+mistral is running and if they are not, perform a sys.exit()
 
 ## License
