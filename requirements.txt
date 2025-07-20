@@ -1,7 +1,5 @@
-# Core dependencies
-typer[all]==0.12.3
-dynaconf==3.2.5
-sentence-transformers==2.2.2
-chromadb==0.4.24
+
+GitPython==3.1.42
+typer==0.12.3
 requests==2.31.0
-GitPython==3.1.43
+dynaconf==3.2.4
