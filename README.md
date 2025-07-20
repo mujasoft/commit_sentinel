@@ -63,18 +63,27 @@ python3 commit_sentinel.py
 ## Sample Output
 
 ```text
-Hash: c41721940bd3bf510f76e1770c75efcc8e2d3cda
-Summary: This commit refactors the `CommandLineAutoApprover` to match full command lines against allow/deny patterns and improve the logic for matching sub-commands. It also removes unnecessary code and updates tests.
+Commit Analysis:
+---------------
+ID: c41721940bd3bf510f76e1770c75efcc8e2d3cda
+Summary: This commit updates the `CommandLineAutoApprover` to use a new configuration setting for matching command lines against allow patterns, and makes some minor fixes.
 
 Risk Factors:
-* None
 
-Risk Score: 4 (medium)
+* The changes affect how the `CommandLineAutoApprover` handles matching command lines against allow patterns.
+* There is a potential risk of unexpected behavior if the new configuration setting is not properly updated or tested.
+* Some tests were added to ensure the correctness of the changes, but it's always good to double-check.
 
-Review Recommendation: Optional
+Risk Score: 6 (Medium)
+
+Review Recommendation: Required
+
+The commit makes some significant changes to the `CommandLineAutoApprover` and its testing infrastructure. While the changes are relatively minor, they do affect how the component handles command line matching, which is an important functionality. As such, I recommend that this commit be reviewed manually before merging to ensure that the changes are correct and properly tested.
 ```
 
----
+## Prompt modification
+
+The prompt was left non parameterized on purpose but if the user would like to change the prompt, it can be done so in **commit_sentinel.py**.
 
 ## Requirements
 
