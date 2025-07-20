@@ -7,8 +7,7 @@ A CLI tool that uses AI to score and summarize the latest Git commit before it b
 
 ## Why This Exists
 
-Software is being updated all the time. Commits are coming in fast and furious. This tool
-can provide a helpful risk assessment prior to submission. At the moment, it only works on the HEAD because the most recent commit is the most likely commit to break everything.
+Code changes move fast. Commits come in quickly and often introduce unintentional risk. This tool helps assess the risk of the **latest commit (HEAD)** before it gets merged.
 
 - Configure once — no need to modify the code
 - Simple CLI interface, CI/CD-ready
@@ -17,14 +16,14 @@ can provide a helpful risk assessment prior to submission. At the moment, it onl
 ## How It Works
 
 This tool:
-1. Works with any Git repository
+1. Connects to any Git repository
 2. Obtains head commit
 3. Uses local LLM (via **llama3**) to perform risk assessment
 
 ## Limitations
-- This tool only focuses on the HEAD of your feature branch. In the future, an option
-may be added to specify a certain commit.
-- Depending on the size of the HEAD commit, the diff may be so large that it can cause the prompt length to be truncated. There will be a warning printed during such cases. Without full information, the LLM's answer may not be as accurate.
+- Currently only analyzes the **HEAD** of your feature branch.
+- Large diffs may exceed the LLM’s token limit and result in truncated prompts — a warning will be printed in such cases.
+- If the full diff doesn't fit, the LLM's response may be less accurate due to missing context.
 
 ## Configuration
 
@@ -40,7 +39,7 @@ git_repo_dir = "~/Desktop/development/vscode"
 output = "head_commit_analysis.txt"
 ```
 
-> Helpful for deployment in pipelines. Parameters can also be overwritten by CLI at any time.
+> Helpful for deployment in pipelines. Settings can also be overwritten by CLI flags anytime.
 
 ## Usage
 
@@ -81,9 +80,9 @@ Review Recommendation: Required
 The commit makes some significant changes to the `CommandLineAutoApprover` and its testing infrastructure. While the changes are relatively minor, they do affect how the component handles command line matching, which is an important functionality. As such, I recommend that this commit be reviewed manually before merging to ensure that the changes are correct and properly tested.
 ```
 
-## Prompt modification
+## Prompt Customization
 
-The prompt was left non parameterized on purpose but if the user would like to change the prompt, it can be done so in **commit_sentinel.py**.
+The prompt was left hardcoded for simplicity. However, if you would like to change the prompt, it can be done so in **commit_sentinel.py**.
 
 ## Requirements
 
