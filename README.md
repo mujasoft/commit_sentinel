@@ -1,6 +1,7 @@
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![License](https://img.shields.io/github/license/mujasoft/git_log_analyser)
 ![Status](https://img.shields.io/badge/status-WIP-orange)
+![Demo Available](https://img.shields.io/badge/demo-available-green)
 
 # Commit Sentinel
 A CLI tool that uses AI to score and summarize the latest Git commit before submission.
