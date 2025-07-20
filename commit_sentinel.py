@@ -113,8 +113,6 @@ def ask_question(commit: dict,
     ---
     """
 
-    #print(full_prompt)
-
     # Send request to local LLM server
     payload = {
         "model": model_name,
@@ -145,6 +143,8 @@ def analyse(branch: str = typer.Option(settings.branch,
             model_name: str = typer.Option(settings.model_name,
                                            help="A helpful name for\
                                                 collection."),
+            output: str = typer.Option(settings.output,
+                                       help="Output location."),
             ollama_url: str = typer.Option(settings.ollama_url,
                                            help="Location of \
                                             git repo.")):
@@ -156,6 +156,9 @@ def analyse(branch: str = typer.Option(settings.branch,
                           model_name
                           )
     print(f"{answer.strip()}\n")
+
+    with open(output, "w") as f:
+        f.write(answer)
 
 
 if __name__ == "__main__":
